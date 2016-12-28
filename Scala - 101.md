@@ -1,0 +1,70 @@
+- Type and behavior of objects are descibed by classes and traits
+- every function is a value
+- currying: f(x,y) to sequence[g(x), g(y)]
+- import
+	- import scala.xml._
+	- import scala.collection.immutable.{TreeMap, TreeSet}
+- type
+	- Unit: no value
+	- Null: null reference
+	- Nothing: sub-type of every other type
+	- Any: super-type of any type
+	- AnyRef: super-type of any reference type
+- variable
+	- var: mutable
+	- val: immutable
+	- Variable declaration: (val|val) VariableName : DataType [=  Initial Value]
+	- Tuple assignment: val (myVar1, myVar2) = Pair(40, "Foo")
+- access modifiers
+	- private[X] or protected[X] = access "up to" X
+	- where X designates some enclosing package, class or singleton object
+- function
+	- def functionName ([list of parameters]) : [return type]
+	- Call-by-Name
+		- function1(function2())
+		- function as argument
+	- Named Arguments
+		- def printInt( a:Int, b:Int )
+		- printInt(b=5, a=7)
+		- result "a=7, b=5"
+	- Variable Arguments
+		- def printStrings( args:String* ) {for( arg <- args ) {}}
+		- String* => Array[String]
+		- printStrings("Hello", "Scala", "Python")
+	- Default Parameter Values
+		- def addInt( a:Int=5, b:Int=7 ) : Int
+		- addInt()
+		- return 12
+	- Higher-Order Functions
+		- functions accept function as argument
+	- Anonymous Functions
+		- var inc = (x:Int) => x+1
+	- Partially Applied Functions
+		- def log(date: Date, message: String)
+		- val logWithDateBound = log(date, _ : String)
+		- logWithDateBound("message1" )
+	- Currying Functions
+		- def strcat(s1: String)(s2: String) = s1 + s2
+		- def strcat(s1: String) = (s2: String) => s1 + s2
+- closure
+- array
+	- import Array._
+	- var z:Array[String] = new Array[String](3)
+	- var z = Array("Zara", "Nuha", "Ayan")
+	- for ( x <- myList )
+	- for ( i <- 0 to (myList.length - 1)) {total += myList(i);}
+- classes
+	- class Point(val xc: Int, val yc: Int)
+	- class Location(override val xc: Int, override val yc: Int, val zc :Int) extends Point(xc, yc)
+- traits
+	- specifying the signature of the supported methods
+	- may not have constructor parameters
+	- If efficiency is very important, lean towards using a class.
+- Pattern Matching
+	- def matchTest(x: Int): String = x match { case 1 => "one" }
+	- case class: compiler automatically implements equals, hashCode, and toString methods
+- Extractors
+	- unapply method: extraction in pattern matching object(x) => object(object.unapply())
+	- apply method: use on construction object(x) => object(object.apply(x))
+
+
